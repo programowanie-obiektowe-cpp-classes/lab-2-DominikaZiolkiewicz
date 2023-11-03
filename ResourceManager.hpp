@@ -29,6 +29,7 @@ class ResourceManager
     ResourceManager& operator=(const ResourceManager&& rm){
         if(&rm != this){
             this->resource->tab = std::move(rm.resource->tab);
+            rm.~ResourceManager();
         }
         return *this;
     }
