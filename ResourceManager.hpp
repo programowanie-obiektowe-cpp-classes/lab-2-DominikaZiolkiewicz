@@ -9,7 +9,7 @@ class ResourceManager
         resource = new Resource();
     }
     ResourceManager(const ResourceManager& rm){
-        //resource = new Resource();
+        resource = new Resource();
         *resource = *rm.resource;
     }
     ~ResourceManager(){
