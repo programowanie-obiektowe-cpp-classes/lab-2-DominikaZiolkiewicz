@@ -9,8 +9,8 @@ class ResourceManager
         resource = new Resource();
     }
     ResourceManager(const ResourceManager& rm){
-        resource = new Resource();
-        resource -> tab = rm.resource ->tab;
+        //resource = new Resource();
+        *resource = *rm.resource;
     }
     ~ResourceManager(){
         delete resource;
