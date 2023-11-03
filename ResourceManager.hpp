@@ -4,5 +4,23 @@
 
 class ResourceManager
 {
-    // Twoja implementacja tutaj
+    public:
+    ResourceManager(){
+        resource = new Resource();
+    }
+    ResourceManager(const ResourceManager& rm){
+        resource = new Resource();
+        resource -> tab = rm.resource ->tab;
+    }
+    ~ResourceManager(){
+        delete resource;
+    }
+
+    double get(){
+        return resource -> get();
+    }
+
+    private:
+    Resource* resource = nullptr;
+   
 };
