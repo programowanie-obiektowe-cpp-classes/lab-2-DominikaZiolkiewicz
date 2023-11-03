@@ -12,6 +12,10 @@ class ResourceManager
         resource = new Resource();
         *this = rm;
     }
+    ResourceManager(const ResourceManager&& rm){
+        resource = new Resource();
+        *this = std::move(rm);
+    }
     ~ResourceManager(){
         delete resource;
     }
@@ -19,6 +23,12 @@ class ResourceManager
     ResourceManager& operator=(const ResourceManager& rm){
         if(&rm != this){
             this->resource->tab = rm.resource->tab;
+        }
+        return *this;
+    }
+    ResourceManager& operator=(const ResourceManager&& rm){
+        if(&rm != this){
+            this->resource->tab = std::move(rm.resource->tab);
         }
         return *this;
     }
