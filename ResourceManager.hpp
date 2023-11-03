@@ -10,10 +10,17 @@ class ResourceManager
     }
     ResourceManager(const ResourceManager& rm){
         resource = new Resource();
-        *resource = *rm.resource;
+        *this = rm;
     }
     ~ResourceManager(){
         delete resource;
+    }
+
+    ResourceManager& operator=(const ResourceManager& rm){
+        if(&rm != this){
+            this->resource->tab = rm.resource->tab;
+        }
+        return *this;
     }
 
     double get(){
